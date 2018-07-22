@@ -1,9 +1,4 @@
 
-# coding: utf-8
-
-# In[1]:
-
-
 #importing dependencies 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -11,8 +6,6 @@ import pandas as pd
 import scipy
 from scipy import stats
 
-
-# In[2]:
 
 
 #loading data
@@ -28,8 +21,6 @@ f_ys=ys[60:]
 f_xs=xs[60:]
 
 
-# In[3]:
-
 
 #calculating linear regression values for the dataset
 
@@ -42,8 +33,6 @@ mxreg_line = [(mxslope*x) + mxintercept for x in m_xs]
 fxslope, fxintercept, fxr_value, fxp_value, fxstd_err = stats.linregress(f_xs,f_ys)
 fxreg_line = [(fxslope*x) + fxintercept for x in f_xs]
 
-
-# In[4]:
 
 
 #Scatter plot male and female
@@ -71,33 +60,20 @@ plt.savefig('graph.png', transparent=True, dpi=600)
 plt.show()
 
 
-# In[5]:
-
-
 #https://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.stats.pearsonr.html
 
 
 pearsonrCoeff1, pValue = scipy.stats.pearsonr(xs, ys)
 print (pearsonrCoeff1)
 
-
-# In[6]:
-
-
 pearsonrCoeff2, pValue = scipy.stats.pearsonr(m_xs, m_ys)
 print (pearsonrCoeff2)
-
-
-# In[7]:
-
 
 pearsonrCoeff3, pValue = scipy.stats.pearsonr(f_xs, f_ys)
 print (pearsonrCoeff3)
 
 
-# In[8]:
-
-
+#boxplot
 data = [xs,ys,m_xs,m_ys,f_xs,f_ys]
 plt.title('Human Rating and API Score for Male and Female Speakers\nRepresented by Boxplots')
 plt.boxplot(data)
@@ -106,10 +82,7 @@ plt.xticks([1, 2, 3, 4, 5, 6],
 plt.savefig('graph2.png', transparent=True, dpi=600,bbox_inches="tight")
 plt.show()
 
-
-# In[9]:
-
-
+#barplot for pearson correlation
 x=[1,2,3]
 r = [round(pearsonrCoeff1,3), round(pearsonrCoeff2,3), round(pearsonrCoeff3,3)]
 plt.bar(x,r)
